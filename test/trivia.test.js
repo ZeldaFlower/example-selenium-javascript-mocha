@@ -166,9 +166,10 @@ describe('ACME Bank', () => {
         await driver.get("https://s3.amazonaws.com/christine-trivia/index.html");
 
         // Verify the full login page loaded correctly.
-        await eyes.check(Target.window().fully().withName("Login page"));
+        await eyes.check(Target.window().fully().withName("Christine Trivia"));
 
         // Perform login.
+        await driver.findElement(By.css("#LoginWithAmazon")).click();
         await driver.findElement(By.css("#username")).sendKeys("andy");
         await driver.findElement(By.css("#password")).sendKeys("i<3pandas");
         await driver.findElement(By.id("log-in")).click();
